@@ -1,27 +1,38 @@
-# Проект FitLife - MVP версия 1.0
+"""Проект FitLife - MVP версия 1.0"""
 
 WATER_PER_KG = 30
+ML_IN_L = 1000
 
 # 1. Знакомство
 user_name = input('Представьтесь, пожалуйста! ')
-try:
-    user_age = int(input('Назовите ваш возраст (только число полных лет) '))
-except ValueError:
-    print('Попробуйте еще раз, возраст должен быть числом')
+while True:
+    try:
+        user_age = int(
+            input('Назовите ваш возраст (только число полных лет) ')
+        )
+        break
+    except ValueError:
+        print('Попробуйте еще раз, возраст должен быть числом')
 
 
 # 2. Сбор данных
-try:
-    user_weight = float(
-        input('Введите вес в килограммах, используя точку: 60.75 ')
-    )
-except ValueError:
-    print('Попробуйте еще раз, нужно ввести число с разделителем-точкой')
+while True:
+    try:
+        user_weight = float(
+            input('Введите вес в килограммах, используя точку: 60.75 ')
+        )
+        break
+    except ValueError:
+        print('Попробуйте еще раз, нужно ввести число с разделителем-точкой')
 
-try:
-    user_height = float(input('Введите рост в метрах, используя точку: 1.75 '))
-except ValueError:
-    print('Попробуйте еще раз, нужно ввести число с разделителем-точкой')
+while True:
+    try:
+        user_height = float(
+            input('Введите рост в метрах, используя точку: 1.75 ')
+        )
+        break
+    except ValueError:
+        print('Попробуйте еще раз, нужно ввести число с разделителем-точкой')
 
 
 # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
@@ -29,7 +40,7 @@ except ValueError:
 bmi = user_weight / (user_height ** 2)
 
 # Подсчет воды: вес * 30 мл
-water_needed = (user_weight * WATER_PER_KG) / 1000
+water_needed = (user_weight * WATER_PER_KG) / ML_IN_L
 
 # 4. Вывод красивого результата
 print('-' * 40)
